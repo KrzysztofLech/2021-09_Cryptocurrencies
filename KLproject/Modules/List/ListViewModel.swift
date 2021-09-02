@@ -17,6 +17,7 @@ protocol ListViewModelProtocol {
 final class ListViewModel: ListViewModelProtocol {
     
     private let dataService: DataServiceProtocol
+    private var previousData: [Cryptocurrency] = []
     
     var cryptocurrencies: [Cryptocurrency] = []
     var title: String {
@@ -29,9 +30,12 @@ final class ListViewModel: ListViewModelProtocol {
     
     func fetchData(completion: @escaping (String?) -> ()) {
         dataService.fetchData() { [weak self] response in
+            guard let self = self else { return }
+            
             switch response {
             case .success(let data):
-                self?.cryptocurrencies = data.data
+                self.previousData = self.cryptocurrencies
+                self.cryptocurrencies = data.data
                 completion(nil)
             case .failure(let error):
                 completion(error.rawValue)
@@ -40,6 +44,16 @@ final class ListViewModel: ListViewModelProtocol {
     }
     
     func getPriceChange(atIndex index: Int) -> PriceChange {
-        return .none
+        let currency = cryptocurrencies[index]
+        guard let previousCurrency = previousData.first(where: { $0.id == currency.id }),
+              let previousCurrencyPrice = Double(previousCurrency.price),
+              let currencyPrice = Double(currency.price)
+        else { return .none }
+        
+        switch currencyPrice - previousCurrencyPrice {
+        case 0: return .none
+        case ..<0: return .down
+        default: return .up
+        }
     }
 }

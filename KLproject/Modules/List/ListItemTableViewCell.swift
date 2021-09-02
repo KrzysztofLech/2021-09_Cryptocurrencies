@@ -184,6 +184,7 @@ final class ListItemTableViewCell: UITableViewCell {
         percentChange1hLabel.text = "1h:   \(currency.percentChange1h)%"
         percentChange24hLabel.text = "24h: \(currency.percentChange24h)%"
         
+        guard priceChange != .none else { return }
         priceLabel.textColor = priceChange.color
     }
 }

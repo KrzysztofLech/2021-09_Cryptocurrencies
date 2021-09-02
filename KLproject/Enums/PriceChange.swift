@@ -12,7 +12,7 @@ enum PriceChange {
     
     var color: UIColor? {
         switch self {
-        case .none: return AppColor.cellContent
+        case .none: return nil
         case .up: return .green
         case .down: return .red
         }
