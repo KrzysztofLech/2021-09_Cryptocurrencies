@@ -181,8 +181,8 @@ final class ListItemTableViewCell: UITableViewCell {
         symbolLabel.text = currency.symbol
         priceLabel.text = "$\(currency.price)"
         volumeLabel.text = String(currency.volume)
-        percentChange1hLabel.text = "\(currency.percentChange1h)%"
-        percentChange24hLabel.text = "\(currency.percentChange24h)%"
+        percentChange1hLabel.text = "1h:   \(currency.percentChange1h)%"
+        percentChange24hLabel.text = "24h: \(currency.percentChange24h)%"
         
         priceLabel.textColor = priceChange.color
     }

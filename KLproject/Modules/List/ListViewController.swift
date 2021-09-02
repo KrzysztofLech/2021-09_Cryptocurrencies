@@ -21,6 +21,8 @@ final class ListViewController: UIViewController {
     
     private let viewModel: ListViewModelProtocol
     private let contentView = ListView()
+    private let activityIndicatorView = UIActivityIndicatorView()
+    private var timer: Timer?
     
     // MARK: - Lifecycle -
     
@@ -42,32 +44,43 @@ final class ListViewController: UIViewController {
         
         setupTitle()
         setupView()
-        
+        setupTimer()
         fetchData()
     }
     
-    // MARK: - Setup view -
-    
-    private func setupView() {
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColor.text ?? UIColor.black]
-        contentView.tableView.dataSource = self
-        contentView.tableView.register(
-            ListItemTableViewCell.self,
-            forCellReuseIdentifier: ListItemTableViewCell.className)
-    }
+    // MARK: - Setup methods -
     
     private func setupTitle() {
         title = viewModel.title
     }
     
+    private func setupView() {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColor.text ?? UIColor.black]
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicatorView)
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.color = AppColor.text
+        
+        contentView.tableView.dataSource = self
+        contentView.tableView.register(
+            ListItemTableViewCell.self,
+            forCellReuseIdentifier: ListItemTableViewCell.className)
+    }
+        
+    private func setupTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [weak self] _ in
+            self?.fetchData()
+        })
+    }
+    
     // MARK: - Data methods -
     
     private func fetchData() {
-        contentView.showActivityIndicator(true)
+        activityIndicatorView.startAnimating()
         
         viewModel.fetchData() { [weak self] errorText in
             DispatchQueue.main.async {
-                self?.contentView.showActivityIndicator(false)
+                self?.activityIndicatorView.stopAnimating()
                 
                 if let errorText = errorText {
                     self?.delegate?.showAlert(

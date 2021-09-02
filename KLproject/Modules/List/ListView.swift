@@ -18,13 +18,6 @@ final class ListView: UIView {
     
     // MARK: - UI Components -
     
-    private let activityIndicatorView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(style: .large)
-        view.hidesWhenStopped = true
-        view.color = AppColor.text
-        return view
-    }()
-    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
@@ -69,22 +62,5 @@ final class ListView: UIView {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        addSubview(activityIndicatorView)
-        activityIndicatorView.snp.makeConstraints { make in
-            make.center.equalTo(tableView)
-        }
-    }
-    
-    // MARK: - Public methods -
-    
-    func showActivityIndicator(_ show: Bool) {
-        if show {
-            activityIndicatorView.startAnimating()
-        } else {
-            activityIndicatorView.stopAnimating()
-        }
-        
-        tableView.isUserInteractionEnabled = !show
     }
 }
