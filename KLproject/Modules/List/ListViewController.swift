@@ -13,6 +13,10 @@ protocol ListViewControllerDelegate: AnyObject {
 
 final class ListViewController: UIViewController {
     
+    private enum Constants {
+        static let timerInterval: Double = 30
+    }
+    
     // MARK: - Public properties -
     
     weak var delegate: ListViewControllerDelegate?
@@ -68,7 +72,7 @@ final class ListViewController: UIViewController {
     }
         
     private func setupTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: Constants.timerInterval, repeats: true, block: { [weak self] _ in
             self?.fetchData()
         })
     }
@@ -83,11 +87,14 @@ final class ListViewController: UIViewController {
                 self?.activityIndicatorView.stopAnimating()
                 
                 if let errorText = errorText {
+                    self?.timer?.invalidate()
+                    
                     self?.delegate?.showAlert(
                         title: "Data dwonloading problem!",
                         message: errorText,
                         errorHandler: {
                             self?.fetchData()
+                            self?.setupTimer()
                         })
                 } else {
                     self?.setupTitle()
