@@ -10,6 +10,7 @@ import Foundation
 protocol ListViewModelProtocol {
     var cryptocurrencies: [Cryptocurrency] { get }
     var title: String { get }
+    var dataSortMethod: SortMethod { get set }
     func fetchData(completion: @escaping (String?) -> ())
     func getPriceChange(atIndex index: Int) -> PriceChange
 }
@@ -20,9 +21,8 @@ final class ListViewModel: ListViewModelProtocol {
     private var previousData: [Cryptocurrency] = []
     
     var cryptocurrencies: [Cryptocurrency] = []
-    var title: String {
-        return "Cryptocurrencies (\(cryptocurrencies.count))"
-    }
+    var title: String { return "Cryptocurrencies (\(cryptocurrencies.count))" }
+    var dataSortMethod: SortMethod = .name { didSet { sortData() }}
     
     init(dataService: DataServiceProtocol) {
         self.dataService = dataService
@@ -36,6 +36,7 @@ final class ListViewModel: ListViewModelProtocol {
             case .success(let data):
                 self.previousData = self.cryptocurrencies
                 self.cryptocurrencies = data.data
+                self.sortData()
                 completion(nil)
             case .failure(let error):
                 completion(error.rawValue)
@@ -54,6 +55,17 @@ final class ListViewModel: ListViewModelProtocol {
         case 0: return .none
         case ..<0: return .down
         default: return .up
+        }
+    }
+    
+    private func sortData() {
+        switch dataSortMethod {
+        case .name:
+            cryptocurrencies.sort { $0.name.lowercased() < $1.name.lowercased() }
+        case .volume:
+            cryptocurrencies.sort { $0.volume < $1.volume }
+        case .priceChange:
+            cryptocurrencies.sort { Double($0.percentChange24h) ?? 0 < Double($1.percentChange24h) ?? 0 }
         }
     }
 }

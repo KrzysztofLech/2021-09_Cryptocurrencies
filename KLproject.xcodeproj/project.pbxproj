@@ -17,6 +17,7 @@
 		6B14CF6026E0BB5400503114 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF5F26E0BB5300503114 /* ListItemTableViewCell.swift */; };
 		6B14CF6226E0DF6F00503114 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF6126E0DF6F00503114 /* UIView+extensions.swift */; };
 		6B14CF6526E1548F00503114 /* PriceChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF6426E1548F00503114 /* PriceChange.swift */; };
+		6B14CF6726E16C1D00503114 /* SortMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF6626E16C1D00503114 /* SortMethod.swift */; };
 		6B31875126DA2A1F00D27501 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31875026DA2A1F00D27501 /* RootCoordinator.swift */; };
 		6B31875526DA2AFF00D27501 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31875426DA2AFF00D27501 /* ListViewController.swift */; };
 		6B31875826DA2B8400D27501 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31875726DA2B8400D27501 /* ListViewModel.swift */; };
@@ -37,6 +38,7 @@
 		6B14CF5F26E0BB5300503114 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
 		6B14CF6126E0DF6F00503114 /* UIView+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		6B14CF6426E1548F00503114 /* PriceChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChange.swift; sourceTree = "<group>"; };
+		6B14CF6626E16C1D00503114 /* SortMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMethod.swift; sourceTree = "<group>"; };
 		6B31875026DA2A1F00D27501 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		6B31875426DA2AFF00D27501 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6B31875726DA2B8400D27501 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				6B14CF6426E1548F00503114 /* PriceChange.swift */,
+				6B14CF6626E16C1D00503114 /* SortMethod.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				6B14CF5126E0A58600503114 /* Cryptocurrency.swift in Sources */,
 				6B14CF5A26E0AFD900503114 /* AppColors.swift in Sources */,
 				6B14CF6226E0DF6F00503114 /* UIView+extensions.swift in Sources */,
+				6B14CF6726E16C1D00503114 /* SortMethod.swift in Sources */,
 				6B14CF4F26E0A51600503114 /* Cryptocurrencies.swift in Sources */,
 				6B31875126DA2A1F00D27501 /* RootCoordinator.swift in Sources */,
 				6B14CF5426E0A7BE00503114 /* ErrorResult.swift in Sources */,

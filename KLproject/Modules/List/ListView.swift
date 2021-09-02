@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol ListViewDelegate: AnyObject {
+    func didChangeSortMethod(_ sortMethod: SortMethod)
+}
+
 final class ListView: UIView {
     
     var isDataPlaceholderHidden = true {
@@ -16,7 +20,18 @@ final class ListView: UIView {
         }
     }
     
+    weak var delegate: ListViewDelegate?
+    
     // MARK: - UI Components -
+    
+    private let segmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: ["Name", "Volume", "24h Change"])
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.backgroundColor = AppColor.background
+        segmentedControl.selectedSegmentTintColor = AppColor.cellContent
+        segmentedControl.addTarget(self, action: #selector(didSegmentedControlValueChange), for: .valueChanged)
+        return segmentedControl
+    }()
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -58,9 +73,33 @@ final class ListView: UIView {
     // MARK: - Layout -
     
     private func defineLayout() {
+        addSegmentedControl()
+        addTableView()
+    }
+    
+    private func addSegmentedControl() {
+        addSubview(segmentedControl)
+        segmentedControl.snp.makeConstraints { make in
+            make.top.equalTo(snp.topMargin)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(48)
+        }
+    }
+    
+    private func addTableView() {
         addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(segmentedControl.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - Actions -
+    
+    @objc private func didSegmentedControlValueChange() {
+        guard let sortMethod = SortMethod.init(rawValue: segmentedControl.selectedSegmentIndex)
+        else { return }
+        
+        delegate?.didChangeSortMethod(sortMethod)
     }
 }

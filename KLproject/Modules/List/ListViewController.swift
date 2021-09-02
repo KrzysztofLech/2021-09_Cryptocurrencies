@@ -23,7 +23,7 @@ final class ListViewController: UIViewController {
     
     // MARK: - Private properties -
     
-    private let viewModel: ListViewModelProtocol
+    private var viewModel: ListViewModelProtocol
     private let contentView = ListView()
     private let activityIndicatorView = UIActivityIndicatorView()
     private var timer: Timer?
@@ -64,6 +64,8 @@ final class ListViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicatorView)
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.color = AppColor.text
+        
+        contentView.delegate = self
         
         contentView.tableView.dataSource = self
         contentView.tableView.register(
@@ -124,5 +126,14 @@ extension ListViewController: UITableViewDataSource {
         let priceChange = viewModel.getPriceChange(atIndex: indexPath.row)
         cell.configure(withCurrency: currency, andPriceChange: priceChange)
         return cell
+    }
+}
+
+// MARK: - ListViewDelegate method -
+
+extension ListViewController: ListViewDelegate {
+    func didChangeSortMethod(_ sortMethod: SortMethod) {
+        viewModel.dataSortMethod = sortMethod
+        contentView.tableView.reloadData()
     }
 }
