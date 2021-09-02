@@ -19,11 +19,11 @@ struct Cryptocurrency: Decodable {
         case volume = "volume24"
     }
     
-    let id: Int
+    let id: String
     let name: String
-    let percentChange1h: Double
-    let percentChange24h: Double
-    let price: Double
+    let percentChange1h: String
+    let percentChange24h: String
+    let price: String
     let symbol: String
     let volume: Double
 }

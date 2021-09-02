@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,12 @@
 		6B14CF5126E0A58600503114 /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF5026E0A58600503114 /* Cryptocurrency.swift */; };
 		6B14CF5426E0A7BE00503114 /* ErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF5326E0A7BE00503114 /* ErrorResult.swift */; };
 		6B14CF5626E0A7D800503114 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF5526E0A7D800503114 /* DataService.swift */; };
+		6B14CF5A26E0AFD900503114 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF5926E0AFA600503114 /* AppColors.swift */; };
+		6B14CF5D26E0B05A00503114 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6B14CF5C26E0B05A00503114 /* SnapKit */; };
+		6B14CF5E26E0B15B00503114 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CF5826E0AFA600503114 /* ColorAssets.xcassets */; };
+		6B14CF6026E0BB5400503114 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF5F26E0BB5300503114 /* ListItemTableViewCell.swift */; };
+		6B14CF6226E0DF6F00503114 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF6126E0DF6F00503114 /* UIView+extensions.swift */; };
+		6B14CF6526E1548F00503114 /* PriceChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14CF6426E1548F00503114 /* PriceChange.swift */; };
 		6B31875126DA2A1F00D27501 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31875026DA2A1F00D27501 /* RootCoordinator.swift */; };
 		6B31875526DA2AFF00D27501 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31875426DA2AFF00D27501 /* ListViewController.swift */; };
 		6B31875826DA2B8400D27501 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31875726DA2B8400D27501 /* ListViewModel.swift */; };
@@ -26,6 +32,11 @@
 		6B14CF5026E0A58600503114 /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 		6B14CF5326E0A7BE00503114 /* ErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResult.swift; sourceTree = "<group>"; };
 		6B14CF5526E0A7D800503114 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		6B14CF5826E0AFA600503114 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		6B14CF5926E0AFA600503114 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		6B14CF5F26E0BB5300503114 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
+		6B14CF6126E0DF6F00503114 /* UIView+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
+		6B14CF6426E1548F00503114 /* PriceChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChange.swift; sourceTree = "<group>"; };
 		6B31875026DA2A1F00D27501 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		6B31875426DA2AFF00D27501 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6B31875726DA2B8400D27501 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -43,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B14CF5D26E0B05A00503114 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,11 +70,29 @@
 			path = "Data Service";
 			sourceTree = "<group>";
 		};
+		6B14CF5726E0AFA600503114 /* App Colors */ = {
+			isa = PBXGroup;
+			children = (
+				6B14CF5826E0AFA600503114 /* ColorAssets.xcassets */,
+				6B14CF5926E0AFA600503114 /* AppColors.swift */,
+			);
+			path = "App Colors";
+			sourceTree = "<group>";
+		};
+		6B14CF6326E1547A00503114 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				6B14CF6426E1548F00503114 /* PriceChange.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		6B31874F26DA299700D27501 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				6BF4FB5226DA28810087D6FD /* Info.plist */,
 				6BF4FB4D26DA28810087D6FD /* Assets.xcassets */,
+				6B14CF5726E0AFA600503114 /* App Colors */,
 				6BF4FB4F26DA28810087D6FD /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -82,6 +112,7 @@
 				6B31875426DA2AFF00D27501 /* ListViewController.swift */,
 				6B31875726DA2B8400D27501 /* ListViewModel.swift */,
 				6B31875926DA2BCE00D27501 /* ListView.swift */,
+				6B14CF5F26E0BB5300503114 /* ListItemTableViewCell.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -106,6 +137,7 @@
 		6B31875E26DA2CA400D27501 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6B14CF6126E0DF6F00503114 /* UIView+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -135,6 +167,7 @@
 				6B31875226DA2A9400D27501 /* Modules */,
 				6B31875B26DA2C1D00D27501 /* Services */,
 				6B31875D26DA2C8900D27501 /* Models */,
+				6B14CF6326E1547A00503114 /* Enums */,
 				6B31875E26DA2CA400D27501 /* Extensions */,
 				6B31874F26DA299700D27501 /* Supporting Files */,
 			);
@@ -157,6 +190,9 @@
 			dependencies = (
 			);
 			name = KLproject;
+			packageProductDependencies = (
+				6B14CF5C26E0B05A00503114 /* SnapKit */,
+			);
 			productName = KLproject;
 			productReference = 6BF4FB4126DA28800087D6FD /* KLproject.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 6BF4FB3826DA28800087D6FD;
+			packageReferences = (
+				6B14CF5B26E0B05A00503114 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 6BF4FB4226DA28800087D6FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -199,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BF4FB5126DA28810087D6FD /* LaunchScreen.storyboard in Resources */,
+				6B14CF5E26E0B15B00503114 /* ColorAssets.xcassets in Resources */,
 				6BF4FB4E26DA28810087D6FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,12 +251,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B31875826DA2B8400D27501 /* ListViewModel.swift in Sources */,
+				6B14CF6526E1548F00503114 /* PriceChange.swift in Sources */,
 				6BF4FB4526DA28800087D6FD /* AppDelegate.swift in Sources */,
 				6B31875A26DA2BCE00D27501 /* ListView.swift in Sources */,
 				6B14CF5126E0A58600503114 /* Cryptocurrency.swift in Sources */,
+				6B14CF5A26E0AFD900503114 /* AppColors.swift in Sources */,
+				6B14CF6226E0DF6F00503114 /* UIView+extensions.swift in Sources */,
 				6B14CF4F26E0A51600503114 /* Cryptocurrencies.swift in Sources */,
 				6B31875126DA2A1F00D27501 /* RootCoordinator.swift in Sources */,
 				6B14CF5426E0A7BE00503114 /* ErrorResult.swift in Sources */,
+				6B14CF6026E0BB5400503114 /* ListItemTableViewCell.swift in Sources */,
 				6B31875526DA2AFF00D27501 /* ListViewController.swift in Sources */,
 				6BF4FB4726DA28800087D6FD /* SceneDelegate.swift in Sources */,
 				6B14CF5626E0A7D800503114 /* DataService.swift in Sources */,
@@ -413,6 +457,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6B14CF5B26E0B05A00503114 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B14CF5C26E0B05A00503114 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B14CF5B26E0B05A00503114 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6BF4FB3926DA28800087D6FD /* Project object */;
 }
