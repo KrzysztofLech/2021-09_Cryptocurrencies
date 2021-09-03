@@ -15,7 +15,7 @@ final class RootCoordinator: NSObject, Coordinator {
     
     // MARK: - Properties -
     
-    private var window: UIWindow?
+    private var window: UIWindow
     private var navigationController: UINavigationController?
     
     private let dataService: DataServiceProtocol
@@ -40,8 +40,8 @@ final class RootCoordinator: NSObject, Coordinator {
         
         navigationController = UINavigationController(rootViewController: listViewController)
         
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 }
 
