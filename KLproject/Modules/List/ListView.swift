@@ -28,7 +28,9 @@ final class ListView: UIView {
         let segmentedControl = UISegmentedControl(items: ["Name", "Volume", "24h Change"])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.backgroundColor = AppColor.background
-        segmentedControl.selectedSegmentTintColor = AppColor.cellContent
+        segmentedControl.selectedSegmentTintColor = AppColor.text
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.background ?? .red], for: .selected)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.text ?? .red], for: .normal)
         segmentedControl.addTarget(self, action: #selector(didSegmentedControlValueChange), for: .valueChanged)
         return segmentedControl
     }()

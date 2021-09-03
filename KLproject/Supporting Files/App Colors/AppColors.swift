@@ -13,4 +13,7 @@ struct AppColor {
     
     static let cellBackground = UIColor(named: "cellBackground")
     static let cellContent = UIColor(named: "cellContent")
+    
+    static let priceDown = UIColor(named: "priceDown")
+    static let priceUp = UIColor(named: "priceUp")
 }
